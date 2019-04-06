@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-offset-4 col-md-4 users-new-container">
-        <h1 class="text-center text">Sign in</h1>
+        <h1 class="text-center text">Log in</h1>
         <%= form_for(:session, url: login_path) do |f| %>
 
             <div class="form-group">
@@ -17,7 +17,12 @@
               <%= f.text_field :password, class: "form-control" %>
             </div>
 
-            <%= f.submit "登録", class: "btn-block btn" %>
+            <%= f.label :remember_me, class: "checkbox inline" do %>
+              <%= f.check_box :remember_me %>
+              <span>Remember me on this computer</span>
+            <% end %>
+
+            <%= f.submit "Log in", class: "btn-block btn" %>
         <% end %>
         <p>New user? <%= link_to "Sign up now!", signup_path %></p>
       </div>
