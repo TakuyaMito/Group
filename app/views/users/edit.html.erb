@@ -1,11 +1,13 @@
-<% provide(:title, "新規登録") %>
+<% provide(:title, "編集") %>
 <div class="users-new-wrapper">
   <div class="container">
     <div class="row">
       <div class="col-md-offset-4 col-md-4 users-new-container">
-        <h1 class="text-center text">Sign in</h1>
-        <%= form_for(@user, url:signup_path) do |f| %>
+        <h1 class="text-center text">ユーザー情報更新</h1>
+
+        <%= form_for(@user) do |f| %>
           <%= render 'shared/error_messages' %>
+
             <div class="form-group">
               <%= f.label :name, class: 'text' %>
               <%= f.text_field :name, class: "form-control" %>
@@ -23,9 +25,13 @@
               <%= f.text_field :password_confirmation, class: "form-control" %>
             </div>
 
-            <%= f.submit "登録", class: "btn-block btn" %>
+            <%= f.submit "更新する", class: "btn-block btn btn-primary" %>
         <% end %>
-        <%= link_to "ログインはこちらから", login_path, class: "text" %>
+
+        <div class="gravatar_edit">
+          <%= gravatar_for @user %>
+          <a href="http://gravatar.com/emails" target = "_blank">change</a>
+        </div>
       </div>
     </div>
   </div>
